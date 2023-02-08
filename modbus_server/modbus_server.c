@@ -50,7 +50,7 @@ int main(int argc, char **argv)
     int diNo = 100;
     int coilsNo = 100;
     int irNo = 100;
-    int hrNo = 100;
+    int hrNo = 320;
 
     while (1) {
         int option_index = 0;
@@ -189,6 +189,53 @@ int main(int argc, char **argv)
     if (debug)
         printf("Ranges: \n \tCoils: 0-0x%04x\n\tDigital inputs: 0-0x%04x\n\tHolding registers: 0-0x%04x\n\tInput registers: 0-0x%04x\n",
                coilsNo, diNo, hrNo, irNo);
+
+    // Slave ID (1)
+    mb_mapping->tab_registers[128] = slaveAddr;
+
+    // Device signature (6)
+    mb_mapping->tab_registers[200] = 0x0057;
+    mb_mapping->tab_registers[201] = 0x0042;
+    mb_mapping->tab_registers[202] = 0x004d;
+    mb_mapping->tab_registers[203] = 0x0053;
+    mb_mapping->tab_registers[204] = 0x0057;
+    mb_mapping->tab_registers[205] = 0x0033;
+
+    // Firmware version (16)
+    mb_mapping->tab_registers[250] = 0x0034;
+    mb_mapping->tab_registers[251] = 0x002e;
+    mb_mapping->tab_registers[252] = 0x0032;
+    mb_mapping->tab_registers[253] = 0x0030;
+    mb_mapping->tab_registers[254] = 0x002e;
+    mb_mapping->tab_registers[255] = 0x0030;
+    mb_mapping->tab_registers[256] = 0x0000;
+    mb_mapping->tab_registers[257] = 0x0000;
+    mb_mapping->tab_registers[258] = 0x0000;
+    mb_mapping->tab_registers[259] = 0x0000;
+    mb_mapping->tab_registers[260] = 0x0000;
+    mb_mapping->tab_registers[261] = 0x0000;
+    mb_mapping->tab_registers[262] = 0x0000;
+    mb_mapping->tab_registers[263] = 0x0000;
+    mb_mapping->tab_registers[264] = 0x0000;
+    mb_mapping->tab_registers[265] = 0x0000;
+
+    // Serial number (2)
+    mb_mapping->tab_registers[270] = 0x0001;
+    mb_mapping->tab_registers[271] = 0x907d;
+
+    // Firmware signature (12)
+    mb_mapping->tab_registers[290] = 0x006d;
+    mb_mapping->tab_registers[291] = 0x0073;
+    mb_mapping->tab_registers[292] = 0x0077;
+    mb_mapping->tab_registers[293] = 0x0033;
+    mb_mapping->tab_registers[294] = 0x0047;
+    mb_mapping->tab_registers[295] = 0x0034;
+    mb_mapping->tab_registers[296] = 0x0031;
+    mb_mapping->tab_registers[297] = 0x0039;
+    mb_mapping->tab_registers[298] = 0x0074;
+    mb_mapping->tab_registers[299] = 0x0068;
+    mb_mapping->tab_registers[300] = 0x0000;
+    mb_mapping->tab_registers[301] = 0x0000;
 
     if (0 == backend) {
         printf("No backend has been specified!\n");
