@@ -16,6 +16,9 @@ client:
 server:
 	$(MAKE) -C modbus_server
 
+win32:
+	$(MAKE) -C modbus_client win32
+
 install: $(BIN_NAME)
 	$(MAKE) -C modbus_client install
 	$(MAKE) -C modbus_server install
