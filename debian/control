@@ -3,7 +3,7 @@ Maintainer: Wiren Board team <info@wirenboard.com>
 Section: misc
 Priority: optional
 Standards-Version: 4.5.1
-Build-Depends: debhelper (>= 10), pkg-config, libmodbus-dev
+Build-Depends: debhelper-compat (= 13), pkg-config, libmodbus-dev
 Homepage: https://github.com/wirenboard/modbus-utils
 
 Package: modbus-utils
