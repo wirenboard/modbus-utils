@@ -117,10 +117,10 @@ int main(int argc, char **argv)
 
         case 'm':
             if (0 == strcmp(optarg, TcpOptVal)) {
-                backend = createTcpBackend((TcpBackend*)malloc(sizeof(TcpBackend)));
+                backend = createTcpBackend();
             }
             else if (0 == strcmp(optarg, RtuOptVal))
-                backend = createRtuBackend((RtuBackend*)malloc(sizeof(RtuBackend)));
+                backend = createRtuBackend();
             else {
                 printf("Unrecognized connection type %s\n\n", optarg);
                 printUsage(argv[0]);
