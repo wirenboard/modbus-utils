@@ -1,0 +1,4 @@
+[submodule "libmodbus"]
+	path = libmodbus
+	url = https://github.com/wirenboard/libmodbus.git
+	branch = dev/3.2.0

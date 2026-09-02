@@ -1,3 +1,10 @@
+modbus-utils (1.4.1) stable; urgency=medium
+
+  * Build libmodbus for the win32 target from a submodule pinned to dev/3.2.0
+    instead of cloning whatever the default branch happens to be
+
+ -- Ilya Titov <ilya.titov@wirenboard.com>  Wed, 02 Sep 2026 12:39:18 +0300
+
 modbus-utils (1.4.0) stable; urgency=medium
 
   * Port for Debian 13
